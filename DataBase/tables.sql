@@ -1,6 +1,7 @@
 CREATE DATABASE transporte;
 USE transporte;
 
+-- Tabla de clientes
 CREATE TABLE IF NOT EXISTS clientes (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(100) NOT NULL,
@@ -8,6 +9,7 @@ CREATE TABLE IF NOT EXISTS clientes (
   telefono VARCHAR(15) NOT NULL
 );
 
+-- Tabla de rutas
 CREATE TABLE IF NOT EXISTS rutas (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   origen VARCHAR(100) NOT NULL,
@@ -15,6 +17,7 @@ CREATE TABLE IF NOT EXISTS rutas (
   distancia FLOAT NOT NULL
 );
 
+-- Tabla de encomiendas
 CREATE TABLE IF NOT EXISTS encomiendas (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   numero VARCHAR(15) NOT NULL,
@@ -27,12 +30,14 @@ CREATE TABLE IF NOT EXISTS encomiendas (
   FOREIGN KEY (ruta_id) REFERENCES rutas(id)
 );
 
+-- Tabla de conductores
 CREATE TABLE IF NOT EXISTS conductores (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(100) NOT NULL,
   licencia VARCHAR(15) NOT NULL
 );
 
+-- Tabla de vehiculos
 CREATE TABLE IF NOT EXISTS vehiculos (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   tipo VARCHAR(50) NOT NULL,
