@@ -44,38 +44,38 @@ CREATE TABLE IF NOT EXISTS vehiculos (
 -- Tabla de pais
 CREATE TABLE IF NOT EXISTS pais (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY, 
-  cmp_pais VARCHAR(50) NOT NULL,
-  cmp_capital VARCHAR(30) NOT NULL,
-  cmp_codigo_iso VARCHAR(10) NOT NULL COMMENT 'ejm: Perú: PER; Bolivia: BOL',
-  cmp_moneda VARCHAR(30) COMMENT 'Peru: Soles; Mexico: Pesos mexicanos'
+  pais VARCHAR(50) NOT NULL,
+  capital VARCHAR(30) NOT NULL,
+  codigo_iso VARCHAR(10) NOT NULL COMMENT 'ejm: Perú: PER; Bolivia: BOL',
+  moneda VARCHAR(30) COMMENT 'Peru: Soles; Mexico: Pesos mexicanos'
 );
 
 -- Tabla de provincia
 CREATE TABLE IF NOT EXISTS provincia (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   id_pais INT,
-  cmp_codigo_postal VARCHAR(20) NOT NULL,
-  cmp_provincia VARCHAR(50) NOT NULL,
-  cmp_distrito VARCHAR(50) NOT NULL, 
-  FOREIGN KEY (id_pais) REFERENCES erpo_pais(id)
+  codigo_postal VARCHAR(20) NOT NULL,
+  provincia VARCHAR(50) NOT NULL,
+  distrito VARCHAR(50) NOT NULL, 
+  FOREIGN KEY (id_pais) REFERENCES pais(id)
 );
 
 -- Tabla de documento de identidad
 CREATE TABLE IF NOT EXISTS tipodocidentidad (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-  cmp_detalle VARCHAR(100) NULL COMMENT 'detalle del documento de identidad',
-  cmp_tipo_docidentidad VARCHAR(100) NOT NULL COMMENT 'dni, passport, cedula de identidad, ruc,'
+  detalle VARCHAR(100) NULL COMMENT 'detalle del documento de identidad',
+  tipo_docidentidad VARCHAR(100) NOT NULL COMMENT 'dni, passport, cedula de identidad, ruc,'
 );
 
 -- Tabla de empresa
 CREATE TABLE IF NOT EXISTS empresa (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   id_tipodocidentidad INT,
-  cmp_razon_social VARCHAR(100) NOT NULL,
-  cmp_direccion VARCHAR(30) NOT NULL,
-  cmp_telefono VARCHAR(15),
-  cmp_email VARCHAR(100),
-  cmp_logo LONGBLOB NOT NULL COMMENT 'Logo en formato img'
+  razon_social VARCHAR(100) NOT NULL,
+  direccion VARCHAR(30) NOT NULL,
+  telefono VARCHAR(15),
+  email VARCHAR(100),
+  logo LONGBLOB NOT NULL COMMENT 'Logo en formato img'
 );
 
 -- Tabla de cliente
@@ -84,28 +84,24 @@ CREATE TABLE IF NOT EXISTS cliente (
   id_tipodocidentidad INT,
   id_pais INT,
   id_provincia INT,
-  cmp_telefono VARCHAR(15),
-  cmp_email VARCHAR(150),
-  cmp_docidentidad VARCHAR(50) COMMENT 'dni: 2020344576, ruc: 10..., 20..., ',
-  cmp_nombre VARCHAR(200),
-  cmp_apellido VARCHAR(50),
-  cmp_direccion VARCHAR(30) NOT NULL,
-  cmp_tipo_cliente VARCHAR (100) NULL COMMENT 'persona natural, corporativo, asegurado, etc', 
-  FOREIGN KEY (id_tipodocidentidad) REFERENCES erpo_tipodocidentidad(id),
-  FOREIGN KEY (id_pais) REFERENCES erpo_pais(id),
-  FOREIGN KEY (id_provincia) REFERENCES erpo_provincia(id)
+  telefono VARCHAR(15),
+  email VARCHAR(150),
+  docidentidad VARCHAR(50) COMMENT 'dni: 2020344576, ruc: 10..., 20..., ',
+  nombre VARCHAR(200),
+  apellido VARCHAR(50),
+  direccion VARCHAR(30) NOT NULL,
+  tipo_cliente VARCHAR (100) NULL COMMENT 'persona natural, corporativo, asegurado, etc', 
+  FOREIGN KEY (id_tipodocidentidad) REFERENCES tipodocidentidad(id),
+  FOREIGN KEY (id_pais) REFERENCES pais(id),
+  FOREIGN KEY (id_provincia) REFERENCES provincia(id)
 );
 
 -- Tabla de producto
 CREATE TABLE IF NOT EXISTS producto (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-  id_umedida INT,
-  id_proveedor INT,
-  cmp_nombre VARCHAR(30) NOT NULL,
-  cmp_descripcion TEXT NOT NULL,
-  cmp_precio INT NOT NULL,
-  FOREIGN KEY (id_umedida) REFERENCES erpo_umedida(id),
-  FOREIGN KEY (id_proveedor) REFERENCES erpo_proveedor(id)
+  nombre VARCHAR(30) NOT NULL,
+  descripcion TEXT NOT NULL,
+  precio INT NOT NULL
 );
 
 -- Tabla de personal
@@ -113,46 +109,40 @@ CREATE TABLE IF NOT EXISTS personal (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   id_provincia INT,
   id_tipodocidentidad INT,
-  cmp_nombre VARCHAR(50) NOT NULL,
-  cmp_apellido VARCHAR(100) NOT NULL,
-  cmp_fecha_nac DATE,
-  cmp_t_fijo VARCHAR(12) NOT NULL,
-  cmp_t_movil VARCHAR(12) NOT NULL,
-  cmp_t_familiar VARCHAR(12) NOT NULL,
-  cmp_t_descr_tfamiliar VARCHAR(12) NOT NULL,
-  cmp_email VARCHAR(50) NOT NULL UNIQUE,
-  cmp_area VARCHAR(30) NOT NULL,
-  cmp_cargo VARCHAR(100) NOT NULL,
-  FOREIGN KEY (id_provincia) REFERENCES erpo_provincia(id),
-  FOREIGN KEY (id_tipodocidentidad) REFERENCES erpo_tipodocidentidad(id)
+  nombre VARCHAR(50) NOT NULL,
+  apellido VARCHAR(100) NOT NULL,
+  fecha_nac DATE,
+  t_fijo VARCHAR(12) NOT NULL,
+  t_movil VARCHAR(12) NOT NULL,
+  t_familiar VARCHAR(12) NOT NULL,
+  t_descr_tfamiliar VARCHAR(12) NOT NULL,
+  email VARCHAR(50) NOT NULL UNIQUE,
+  area VARCHAR(30) NOT NULL,
+  cargo VARCHAR(100) NOT NULL,
+  FOREIGN KEY (id_provincia) REFERENCES provincia(id),
+  FOREIGN KEY (id_tipodocidentidad) REFERENCES tipodocidentidad(id)
 );
 
 -- Tabla de pagos
 CREATE TABLE IF NOT EXISTS pagos (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-  id_usomaterial INT,
-  cmp_fecha_pago DATE NOT NULL,
-  cmp_monto_pago INT NOT NULL,
-  cmp_metodo_pago VARCHAR(30) NOT NULL COMMENT 'Efectivo, tarjeta de credito, tarjeta de debito, transferencia bancaria, deposito bancario, cheque',
-  FOREIGN KEY (id_usomaterial) REFERENCES erpo_usomaterial(id)
+  fecha_pago DATE NOT NULL,
+  monto_pago INT NOT NULL,
+  metodo_pago VARCHAR(30) NOT NULL COMMENT 'Efectivo, tarjeta de credito, tarjeta de debito, transferencia bancaria, deposito bancario, cheque'
 );
 
 -- Tabla de comprobante pago
 CREATE TABLE IF NOT EXISTS comprobante_pago (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   id_pago INT,
-  id_cita INT,
   id_producto INT,
-  id_proveedor INT,
   id_cliente INT,
-  cmp_fecha_emision DATE,
-  cmp_monto DECIMAL(10, 2),
-  cmp_estaddo_pago VARCHAR(20),
-  FOREIGN KEY (id_pago) REFERENCES erpo_pagos(id),
-  FOREIGN KEY (id_cita) REFERENCES erpo_cita(id),
-  FOREIGN KEY (id_producto) REFERENCES erpo_producto(id),
-  FOREIGN KEY (id_proveedor) REFERENCES erpo_proveedor(id),
-  FOREIGN KEY (id_cliente) REFERENCES erpo_cliente(id)
+  fecha_emision DATE,
+  monto DECIMAL(10, 2),
+  estaddo_pago VARCHAR(20),
+  FOREIGN KEY (id_pago) REFERENCES pagos(id),
+  FOREIGN KEY (id_producto) REFERENCES producto(id),
+  FOREIGN KEY (id_cliente) REFERENCES cliente(id)
 );
 
 -- Tabla factura
@@ -160,21 +150,21 @@ CREATE TABLE IF NOT EXISTS factura (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   id_factura VARCHAR(20),
   id_comprobante_pago INT,
-  FOREIGN KEY (id_comprobante_pago) REFERENCES erpo_comprobante_pago(id)
+  FOREIGN KEY (id_comprobante_pago) REFERENCES comprobante_pago(id)
 );
 
 -- Tabla boleta
 CREATE TABLE IF NOT EXISTS boleta (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY, 
   id_comprobante INT,
-  FOREIGN KEY (id_comprobante) REFERENCES erpo_comprobante_pago(id)
+  FOREIGN KEY (id_comprobante) REFERENCES comprobante_pago(id)
 );
 
 -- Tabla de rol
 CREATE TABLE IF NOT EXISTS rol (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-  cmp_rol VARCHAR(50) NOT NULL,
-  cmp_descripcion VARCHAR(150) NOT NULL
+  rol VARCHAR(50) NOT NULL,
+  descripcion VARCHAR(150) NOT NULL
 );
 
 -- Tabla de usuario de sistema
@@ -182,9 +172,9 @@ CREATE TABLE IF NOT EXISTS usersistema (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   id_personal INT,
   id_rol INT,
-  cmp_username VARCHAR(30) NOT NULL UNIQUE,
-  cmp_pass VARBINARY(60) NOT NULL COMMENT 'seguridad con hash',
-  cmp_fingerprint VARBINARY(60) NOT NULL COMMENT 'seguridad con huella dactilar',
-  FOREIGN KEY (id_personal) REFERENCES erpo_personal(id),
-  FOREIGN KEY (id_rol) REFERENCES erpo_rol(id)
+  username VARCHAR(30) NOT NULL UNIQUE,
+  pass VARBINARY(60) NOT NULL COMMENT 'seguridad con hash',
+  fingerprint VARBINARY(60) NOT NULL COMMENT 'seguridad con huella dactilar',
+  FOREIGN KEY (id_personal) REFERENCES personal(id),
+  FOREIGN KEY (id_rol) REFERENCES rol(id)
 );
