@@ -48,7 +48,7 @@ if ($stmt) {
       $_SESSION['usuario_nombre'] = $row['nombre'];
 
       // Redirige al dashboard u otra página después de iniciar sesión
-      header('Location: ../pages/dashboard.html');
+      header('Location: ../pages/dasboard.html');
       exit;
     } else {
       // XSS:
