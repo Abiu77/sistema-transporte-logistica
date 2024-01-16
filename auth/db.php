@@ -1,5 +1,5 @@
 <?php
-$conexion = mysqli_connect("localhost", "root", "admin", "miapp");
+$connect = new mysqli("localhost", "root", "admin", "transporte");
 
 /*
 if($conexion){
