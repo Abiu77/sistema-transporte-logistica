@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="src/capa-presentacion/rastreo-envios.css">
+  <title>Rastreo de Envíos - Transporte Express</title>
+</head>
+<body>
+  <style>
+    body,
+    h1,
+    h2,
+    h3,
+    p,
+    ul,
+    li,
+    form {
+      margin: 0;
+      padding: 0;
+    }
+
+
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 1em 0;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    nav ul {
+      list-style: none;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .rastreo {
+      padding: 2em 0;
+    }
+
+    .rastreo p {
+      margin-bottom: 1em;
+    }
+
+    form {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 0.5em;
+    }
+
+    form input[type="text"] {
+      width: 100%;
+      padding: 0.5em;
+      margin-bottom: 1em;
+    }
+
+    form button {
+      background-color: #333;
+      color: #fff;
+      padding: 0.7em 1em;
+      border: none;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 1em 0;
+      text-align: center;
+    }
+  </style>
+  <header>
+    <div class="container">
+      <h1>Transporte Express</h1>
+      <nav>
+        <ul>
+          <li><a href="../../home.php">Inicio</a></li>
+          <li><a href="rastreo.php">Rastreo de Envíos</a></li>
+          <li><a href="pedidos.php">Realizar Pedido</a></li>
+          <li><a href="tarifas.php">Tarifas</a></li>
+          <li><a href="">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="rastreo">
+    <div class="container">
+      <h2>Rastreo de Envíos</h2>
+      <p>Ingresa el número de seguimiento de tu envío para conocer su estado actual y detalles de entrega.</p>
+      <form action="#" method="post">
+        <label for="trackingNumber">Número de Seguimiento:</label>
+        <input type="text" id="trackingNumber" name="trackingNumber" required>
+        <button type="submit" class="btn">Rastrear Envío</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Transporte Express</p>
+    </div>
+  </footer>
+
+</body>
+</html>

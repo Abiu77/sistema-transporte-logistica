@@ -1,0 +1,142 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: darkslategray;
+  /* Fondo general de la página */
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+header {
+  background-color: #007bff;
+  /* Fondo del encabezado */
+  color: white;
+  padding: 15px 0;
+}
+
+h1,
+h2,
+h3 {
+  color: #343a40;
+  /* Color del texto principal */
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: blue;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  /* Efecto de transición al pasar el ratón */
+}
+
+nav a:hover {
+  color: aqua;
+  /* Cambio de color al pasar el ratón */
+}
+
+.hero {
+  background-image: url('hero-image.jpg');
+  /* Reemplaza con la URL de tu imagen de fondo */
+  background-size: cover;
+  color: #007bff;
+  padding: 100px 0;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #dc3545;
+  /* Color del botón */
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  /* Efecto de transición al pasar el ratón */
+}
+
+.btn:hover {
+  background-color: #c82333;
+  /* Cambio de color del botón al pasar el ratón */
+}
+
+.about,
+.services,
+.contact {
+  background-color: #fff;
+  /* Fondo de las secciones */
+  padding: 50px 0;
+  border-bottom: 1px solid #e2e6ea;
+  /* Línea divisoria entre secciones */
+}
+
+.services .service {
+  background-color: #f8f9fa;
+  /* Fondo de cada servicio */
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.contact form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact label,
+.contact input,
+.contact textarea {
+  display: block;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.contact button {
+  background-color: #28a745;
+  /* Color del botón de enviar */
+  color: #fff;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact button:hover {
+  background-color: #218838;
+  /* Cambio de color del botón de enviar al pasar el ratón */
+}
+
+footer {
+  background-color: #343a40;
+  /* Fondo del pie de página */
+  color: #fff;
+  padding: 15px 0;
+  text-align: center;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="src/capa-presentacion/tarifas.css">
+  <title>Tarifas - Transporte Express</title>
+</head>
+<body>
+  <style>
+    /* Reset de estilos para eliminar márgenes y rellenos predeterminados */
+    body,
+    h1,
+    h2,
+    h3,
+    p,
+    ul,
+    li,
+    form,
+    table {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Estilos generales */
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    /* Estilos del encabezado */
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 1em 0;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    nav ul {
+      list-style: none;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    /* Estilos de la sección de tarifas */
+    .tarifas {
+      padding: 2em 0;
+    }
+
+    .tarifas p {
+      margin-bottom: 1em;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1em;
+    }
+
+    table th,
+    table td {
+      border: 1px solid #ddd;
+      padding: 0.5em;
+      text-align: left;
+    }
+
+    /* Estilos del pie de página */
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 1em 0;
+      text-align: center;
+    }
+  </style>
+  <header>
+    <div class="container">
+      <h1>Transporte Express</h1>
+      <nav>
+        <ul>
+          <li><a href="/home.php">Inicio</a></li>
+          <li><a href="rastreo.php">Rastreo de Envíos</a></li>
+          <li><a href="pedidos.php">Realizar Pedido</a></li>
+          <li><a href="tarifas.phps">Tarifas</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="tarifas">
+    <div class="container">
+      <h2>Tarifas</h2>
+      <!-- Contenido específico para la página de Tarifas -->
+      <p>Consulta nuestras tarifas para los servicios de transporte. Ofrecemos opciones competitivas para satisfacer tus
+        necesidades de envío.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Servicio</th>
+            <th>Tarifa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Envíos Nacionales e Internacionales</td>
+            <td>Varía según la distancia y peso</td>
+          </tr>
+          <tr>
+            <td>Rastreo en Tiempo Real</td>
+            <td>Gratis con cada envío</td>
+          </tr>
+          <tr>
+            <td>Entrega Rápida</td>
+            <td>Adicional para entrega express</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Transporte Express</p>
+    </div>
+  </footer>
+
+</body>
+</html>
