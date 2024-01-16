@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Administrador</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    section {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      border-bottom: 1px solid #ecf0f1;
+      padding: 10px;
+    }
+
+    li:last-child {
+      border-bottom: none;
+    }
+  </style>
+  <h1>Panel de Administrador</h1>
+
+  <section>
+    <h2>Solicitudes</h2>
+    <ul id="solicitudes-list"></ul>
+  </section>
+
+  <section>
+    <h2>Carros de Transporte Libres</h2>
+    <ul id="carros-libres-list"></ul>
+  </section>
+
+  <script src="../src/capa_datos/app.js"></script>
+</body>
+</html>
