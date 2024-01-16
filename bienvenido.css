@@ -63,8 +63,8 @@ header {
   width: 70%;
   height: 100%;
   min-height: 100vh;
-  background: rgb(2, 36, 0);
-  background: linear-gradient(90deg, rgba(2, 36, 0, 1) 0%, rgba(17, 121, 9, 1) 65%, rgba(224, 255, 0, 1) 100%);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(0, 97, 235, 1) 35%, rgba(0, 212, 255, 1) 100%);
   position: relative;
   top: 0;
   display: grid;
@@ -114,7 +114,7 @@ section {
 .hero-text a {
   display: inline-block;
   color: #fff;
-  background: #4d9559;
+  background: #00bffb;
   border: 1px solid transparent;
   padding: 12px 30px;
   line-height: 1.4;
