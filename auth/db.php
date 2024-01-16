@@ -1,12 +1,16 @@
 <?php
-$connect = new mysqli("localhost", "root", "admin", "transporte");
+// Configuración de la base de datos
+$host = "localhost";
+$username = "root";
+$password = "admin";
+$database = "transporte";
 
-/*
-if($conexion){
-    echo 'Conectado exitosamente a la base de datos';
-}else{
-    echo 'No se ha podido conectar a la base de datos';
+// Intenta establecer una conexión a la base de datos
+$connect = new mysqli($host, $username, $password, $database);
+
+// Verifica la conexión
+if ($connect->connect_error) {
+  die("Error de conexión a la base de datos: " . $connect->connect_error);
 }
-*/
 ?>
 
