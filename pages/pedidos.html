@@ -1,0 +1,141 @@
+<html lang="es" class="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="src/capa-presentacion/realizar-pedido.css">
+  <title>Realizar Pedido - Transporte Express</title>
+</head>
+<body>
+  <style>
+    /* Reset de estilos para eliminar márgenes y rellenos predeterminados */
+    body,
+    h1,
+    h2,
+    h3,
+    p,
+    ul,
+    li,
+    form {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Estilos generales */
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    /* Estilos del encabezado */
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 1em 0;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    nav ul {
+      list-style: none;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    /* Estilos de la sección de realizar pedido */
+    .pedido {
+      padding: 2em 0;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 0.5em;
+    }
+
+    form input[type="text"],
+    form textarea,
+    form input[type="date"] {
+      width: 100%;
+      padding: 0.5em;
+      margin-bottom: 1em;
+    }
+
+    form button {
+      background-color: #333;
+      color: #fff;
+      padding: 0.7em 1em;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Estilos del pie de página */
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 1em 0;
+      text-align: center;
+    }
+  </style>
+
+  <header>
+    <div class="container">
+      <h1>Transporte Express</h1>
+      <nav>
+        <ul>
+          <li><a href="../../home.php">Inicio</a></li>
+          <li><a href="rastreo.php">Rastreo de Envíos</a></li>
+          <li><a href="pedidos.php">Realizar Pedido</a></li>
+          <li><a href="tarifas.php">Tarifas</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="pedido">
+    <div class="container">
+      <h2>Realizar Pedido</h2>
+      <!-- Contenido específico para la página de Realizar Pedido -->
+      <form action="#" method="post">
+        <label for="sender">Remitente:</label>
+        <input type="text" id="sender" name="sender" required="">
+        <label for="recipient">Destinatario:</label>
+        <input type="text" id="recipient" name="recipient" required="">
+        <label for="package">Descripción del Paquete:</label>
+        <textarea id="package" name="package" rows="4" required=""></textarea>
+        <label for="deliveryDate">Fecha de Entrega Deseada:</label>
+        <input type="date" id="deliveryDate" name="deliveryDate" required="">
+        <button type="submit" class="btn">Enviar Pedido</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2024 Transporte Express</p>
+    </div>
+  </footer>
+
+
+
+</body>
+</html>

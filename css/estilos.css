@@ -4,6 +4,8 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(0, 97, 235, 1) 35%, rgba(0, 212, 255, 1) 100%);
 }
 
 .login {
@@ -51,6 +53,7 @@ main {
 }
 
 div {
+  background-color: #fff;
   display: flex;
   width: 25%;
   border-radius: 9px;
