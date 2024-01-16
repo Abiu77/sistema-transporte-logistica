@@ -173,12 +173,16 @@ CREATE TABLE IF NOT EXISTS rol (
 );
 
 -- Tabla de usuario de sistema
+-- Tabla de usuario de sistema
 CREATE TABLE IF NOT EXISTS usersistema (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   id_personal INT,
   id_rol INT,
+  nombre VARCHAR(80),
+  apellido VARCHAR(100),
   username VARCHAR(30) NOT NULL UNIQUE,
-  pass VARBINARY(60) NOT NULL COMMENT 'seguridad con hash',
+  correo VARCHAR(100),
+  contrasenia VARBINARY(60) NOT NULL COMMENT 'seguridad con hash',
   fingerprint VARBINARY(60) NOT NULL COMMENT 'seguridad con huella dactilar',
   FOREIGN KEY (id_personal) REFERENCES personal(id),
   FOREIGN KEY (id_rol) REFERENCES rol(id)
