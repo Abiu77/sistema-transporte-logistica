@@ -19,7 +19,7 @@ if (!isset($_SESSION['intentosFallidos'])) {
 
 // SQL INJECTION:
 // Preparar la consulta con una consulta preparada
-$query = "SELECT * FROM erpo_usersistema WHERE correo=?";
+$query = "SELECT * FROM usersistema WHERE correo=?";
 $stmt = mysqli_prepare($connect, $query);
 
 // Verificar si la preparación fue exitosa

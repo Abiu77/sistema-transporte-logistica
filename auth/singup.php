@@ -13,7 +13,7 @@ $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
 // SQL INJECTION:
 // Preparar la consulta con una consulta preparada
-$query = "INSERT INTO erpo_usersistema (nombre, apellido, username, correo, contrasenia, fingerprint) VALUES (?, ?, ?, ?, ?, '')";
+$query = "INSERT INTO usersistema (nombre, apellido, username, correo, contrasenia, fingerprint) VALUES (?, ?, ?, ?, ?, '')";
 $stmt = mysqli_prepare($connect, $query);
 
 // Verificar si la preparación fue exitosa
